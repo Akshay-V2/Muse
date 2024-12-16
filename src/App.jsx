@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../src/App.css';
 
 import TimeWidget from './components/TimeWidget';
-import Switcher from './components/switcher';
+import Switcher from './components/Switcher';
 import Pomodoro from './components/Pomodoro';
 
 function App() {
