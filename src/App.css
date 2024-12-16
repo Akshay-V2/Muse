@@ -120,3 +120,33 @@ body {
     width: fit-content;
     gap: 6px;
 }
+
+/* start of pomodoro */
+
+.pomo-text {
+    font-size: 8rem;
+    color: var(--accent);
+    line-height: 5.75rem;
+}
+
+.pomo-icon {
+    color: var(--accent);
+}
+
+.pomo-icon-holder {
+    width: 45px;
+    height: 45px;
+    border-radius: 800px;
+    box-sizing: border-box;
+    border: solid var(--accent) 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pomo-full-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
