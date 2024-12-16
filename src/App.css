@@ -44,6 +44,7 @@ body {
     box-sizing: border-box;
     border: solid var(--accent) 1px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -83,4 +84,39 @@ body {
     align-items: flex-start;
     width: fit-content;
     gap: 10px;
+}
+
+/* start of switcher */
+
+.switcher-icons {
+    color: var(--accent);
+}
+
+.switcher-icons-holder {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.switcher-dots-active {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent);
+    border-radius: 800px;
+}
+
+.switcher-dots-inactive {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent);
+    border-radius: 800px;
+    opacity: 20%;
+}
+
+.switcher-dots-holder {
+    display: flex;
+    width: fit-content;
+    gap: 6px;
 }
