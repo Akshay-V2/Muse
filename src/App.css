@@ -3,8 +3,8 @@
 :root {
     --bg: #FFF7DF;
     --accent: #0051FF;
+    --smoothEase: cubic-bezier(.39,.19,.28,.99);
 }
-
 body {
     background-color: var(--bg);
     margin: 0;
@@ -142,11 +142,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all var(--smoothEase) 200ms;
+    opacity: 0%;
 }
 
 .pomo-full-holder {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0px;
+    transition: all var(--smoothEase) 200ms;
+}
+
+.pomo-full-holder:hover {
     gap: 20px;
+}
+
+.pomo-full-holder:hover .pomo-icon-holder {
+    opacity: 100%;
+}
+
+.pomo-icon-holder:hover {
+    scale: 0.9;
 }

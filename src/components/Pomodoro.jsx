@@ -2,6 +2,7 @@ import React from 'react';
 import { Play, Pause, PencilSimple } from '@phosphor-icons/react';
 
 const Pomodoro = () => {
+
     return (
         <>
         <div className='pomo-full-holder'>
