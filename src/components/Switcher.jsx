@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CaretRight, CaretLeft } from '@phosphor-icons/react';
 
 const Switcher = (props) => {
@@ -6,7 +6,7 @@ const Switcher = (props) => {
 
     const handleSwitch = (direction) => {
         let newMode;
-        if (direction == 'fwd' && mode <= 2) {
+        if (direction == 'fwd' && mode <=0) {
             newMode = mode + 1;
             setMode(newMode);
         } else if (direction == 'rwd' && mode >= 1) {
