@@ -231,6 +231,11 @@ body {
 
 .pomo-edit-mode-icon {
     color: var(--accent);
+    transition: all var(--smoothEase) 200ms;
+}
+
+.pomo-edit-mode-icon:hover {
+    scale: 1.1;
 }
 
 .pomo-edit-mode-text {
@@ -247,6 +252,11 @@ body {
 .pomo-edit-carets {
     display: flex;
     flex-direction: column;
+    transition: all var(--smoothEase) 200ms;
+}
+
+.pomo-edit-carets:hover {
+    scale: 1.1;
 }
 
 .pomo-edit-text-full {
@@ -265,16 +275,19 @@ body {
     justify-content: center;
     align-items: center;
     gap: 6px;
+    transition: all var(--smoothEase) 200ms;
 }
 
 .pomo-edit-button-icon {
     color: var(--accent);
+    transition: all var(--smoothEase) 200ms;
 }
 
 .pomo-edit-button-text {
     font-weight: 500;
     color: var(--accent);
     font-size: 20px;
+    transition: all var(--smoothEase) 200ms;
 }
 
 .pomo-edit-buttons-holder {
