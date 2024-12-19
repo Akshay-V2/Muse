@@ -26,8 +26,6 @@ const Switcher = (props) => {
             <div className='switcher-dots-holder'>
                 <div className={mode === 0 ? 'switcher-dots-active' : 'switcher-dots-inactive'}></div>
                 <div className={mode === 1 ? 'switcher-dots-active' : 'switcher-dots-inactive'}></div>
-                <div className={mode === 2 ? 'switcher-dots-active' : 'switcher-dots-inactive'}></div>
-                <div className={mode === 3 ? 'switcher-dots-active' : 'switcher-dots-inactive'}></div>
             </div>
             <CaretRight size={24} weight="fill" className='switcher-icons' onClick={() => handleSwitch('fwd')}/>
         </div>

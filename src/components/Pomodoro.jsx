@@ -27,7 +27,6 @@ const Pomodoro = () => {
                         setIsRunning(false);
                         setIsFinished(true);
                         bellDing.play();
-                        confetti();
                         return 0;
                     }
                     return prev - 1;
