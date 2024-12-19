@@ -133,6 +133,16 @@ body {
     color: var(--accent);
 }
 
+#reset {
+    width: 0;
+    height: 0;
+}
+
+#reset-icon {
+    width: 0;
+    height: 0;
+}
+
 .pomo-icon-holder {
     width: 45px;
     height: 45px;
@@ -156,6 +166,16 @@ body {
 
 .pomo-full-holder:hover {
     gap: 20px;
+}
+
+.pomo-full-holder:hover #reset {
+    width: 45px;
+    height: 45px;
+}
+
+.pomo-full-holder:hover #reset-icon {
+    width: auto;
+    height: auto;
 }
 
 .pomo-full-holder:hover .pomo-icon-holder {
