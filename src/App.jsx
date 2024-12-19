@@ -17,7 +17,7 @@ function App() {
     return (
         <>
         <div className='bg-frame'>
-            {currentMode === 0  ? <Pomodoro/> : currentMode === 1 ? <TimeWidget/> : null }
+            {currentMode === 0  ? <TimeWidget/> : currentMode === 1 ? <Pomodoro/> : null }
             <Switcher onModeChange={handleModeChange}/>
         </div>
         </>
