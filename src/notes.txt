@@ -1,0 +1,2 @@
+Add functionality to reset custom session times > Pomodoro.
+Add functionality to Mute in Edit menu > Pomodoro.
