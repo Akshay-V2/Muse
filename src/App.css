@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+body {
+    background-image: url('/Bg.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Outward';
+    src: url('../public/fonts/outward-block-webfont.woff2');
+}
+
+:root{
+    --accent: #0051FF;
+    --bg: #FFF7DF;
+    --bounceEase: cubic-bezier(.36,.08,.16,.99);
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Standard */
+}
+
+.timer-text {
+    font-family: 'Outward';
+    color: var(--accent);
+    font-size: 21.875rem;
+    translate: 0rem 1.5625rem;
+}
+
+.timer-card {
+    background-color: var(--bg);
+    box-sizing: border-box;
+    border: solid var(--accent) 0.125rem;
+    width: 361px;
+    height: 342px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-decor {
+    position: absolute;
+    width: 48px;
+    height: 144px;
+    background-color: var(--bg);
+    box-sizing: border-box;
+    border: solid var(--accent) 0.125rem;
+    border-radius: 800px;
+    translate: 180px;
+}
+
+.timer-decor:nth-child(1) {
+    translate: -180px;
+}
+
+.timer-button {
+    width: 174px;
+    height: 94px;
+    background-color: var(--bg);
+    box-sizing: border-box;
+    border: solid var(--accent) 0.125rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--bounceEase) 0.3s;
+}
+
+@keyframes button-click-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.timer-button.animate {
+    animation: button-click-animation 0.3s ease-in-out;
+}
+
+.timer-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 361px;
+    gap: 13px;
+}
+
+.timer-button-icon {
+    color: var(--accent);
+}
+
+.timer-mode-card {
+    width: 361px;
+    height: 57px;
+    background-color: var(--bg);
+    box-sizing: border-box;
+    border: solid var(--accent) 0.125rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.timer-mode-indicator {
+    width: 234px;
+    height: 45px;
+    background-color: var(--accent);
+    border-radius: 14px;
+    font-family: 'Rethink Sans', sans-serif;
+    font-weight: 600;
+    color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.timer-mode-icon {
+    color: var(--accent);
+}
+
+.pomodoro {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
