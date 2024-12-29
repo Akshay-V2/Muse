@@ -1,21 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ClockClockwise, Play, Pause, ArrowFatLinesLeft, ArrowFatLinesRight } from "@phosphor-icons/react";
+import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 
 const Timer = () => {
-    const [time, setTime] = useState(1500); // 25 minutes in seconds
+    const [time, setTime] = useState(1500);
     const [isActive, setIsActive] = useState(false);
     const intervalRef = useRef(null);
 
+    let bellDing = new Audio('/sounds/bellding.mp3');
+    let switchModeSound = new Audio('/sounds/switchMode.wav');
+
     useEffect(() => {
-        if (isActive) {
+        if (isActive && time > 0) {
             intervalRef.current = setInterval(() => {
-                setTime(prevTime => prevTime - 1);
+                setTime(prevTime => {
+                    if (prevTime <= 1) {
+                        setIsActive(false);
+                        setTime(1500); // Reset to 25 minutes
+                        bellDing.play();
+                        confetti();
+                        return 0;
+                    }
+                    return prevTime - 1;
+                });
             }, 1000);
-        } else if (!isActive && intervalRef.current) {
+        } else if ((!isActive && intervalRef.current) || time === 0) {
             clearInterval(intervalRef.current);
         }
         return () => clearInterval(intervalRef.current);
-    }, [isActive]);
+    }, [isActive, time]);
 
     const handlePlayPauseClick = () => {
         setIsActive(!isActive);
@@ -32,13 +45,47 @@ const Timer = () => {
         return `${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     };
 
+    const modes = ['WORK', 'BREAK', 'LONG BREAK'];
+    const [modeIndex, setModeIndex] = useState(0);
+    const [mode, setMode] = useState("WORK");
+
+    const changeModePositive = () => {
+        setModeIndex((prevIndex) => (prevIndex + 1) % modes.length);
+    }
+
+    const changeModeNegative = () => {
+        setModeIndex((prevIndex) => (prevIndex - 1 + modes.length) % modes.length);
+    }
+
+    useEffect(() => {
+        setMode(modes[modeIndex]);
+        switch (modeIndex) {
+            case 0:
+                setTime(1500); // 25 minutes
+                setIsActive(false);
+                break;
+            case 1:
+                setTime(300); // 5 minutes
+                setIsActive(false);
+                break;
+            case 2:
+                setTime(900); // 15 minutes
+                setIsActive(false);
+                break;
+            default:
+                setTime(1500); // 25 minutes
+                setIsActive(false);
+        }
+        switchModeSound.play();
+    },[modeIndex]);
+
     return (
         <>
         <div className='pomodoro'>
             <div className='timer-mode-card'>
-                <ArrowFatLinesLeft size={40} weight="fill" className='timer-mode-icon'/>
-                <div className='timer-mode-indicator'>WORK</div>
-                <ArrowFatLinesRight size={40} weight="fill" className='timer-mode-icon'/>
+                <ArrowFatLinesLeft size={40} weight="fill" className='timer-mode-icon' onClick={changeModeNegative}/>
+                <div className='timer-mode-indicator unselectable'>{modes[modeIndex]}</div>
+                <ArrowFatLinesRight size={40} weight="fill" className='timer-mode-icon' onClick={changeModePositive}/>
             </div>
 
             <div className='timer-card'>
